@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Adopt-Ar Admin</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="shortcut icon" href="../assets/favicon.png" type="image/png" />
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+  <body class="bg-body-tertiary">
+    <header>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+            <img class="logo" src="../assets/logo.png" alt="logo" /><span
+              class="fw-bold"
+              >Adopt-Ar</span
+            >
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="../index.html"
+                  >Inicio</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Adoptar</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link disabled" aria-disabled="true"
+                  >Sobre nosotros</a
+                >
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Administrar
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="dropdown-item" href="./admin_alta.html"
+                      >Alta de mascota</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="./admin_table.html"
+                      >Listado de mascotas</a
+                    >
+                  </li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Buscar..."
+                aria-label="Search"
+              />
+              <button class="btn btn-outline-dark" type="submit">Buscar</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class="container">
+        <div class="row mt-5">
+          <div class="col">
+            <h3>Alta de mascotas</h3>
+          </div>
+        </div>
+        <div class="row my-3">
+          <div class="col-12 col-md-6">
+            <form id="formulario-alta">
+              <div class="mb-3">
+                <label for="nombre" class="form-label"
+                  ><span class="text-danger fw-bold">*</span>Nombre</label
+                >
+                <input type="text" class="form-control" id="nombre" />
+              </div>
+              <div class="mb-3">
+                <label for="especies" class="form-label">Especie</label>
+                <select
+                  id="especies"
+                  class="form-select"
+                  aria-label="especies"
+                ></select>
+              </div>
+              <div class="mb-3">
+                <label for="raza" class="form-label"
+                  ><span class="text-danger fw-bold">*</span>Raza</label
+                >
+                <input type="text" class="form-control" id="raza" />
+              </div>
+              <div class="row">
+                <div class="col-12 col-md-6 mb-3">
+                  <label for="edad" class="form-label"
+                    ><span class="text-danger fw-bold">*</span>Edad</label
+                  >
+                  <input type="number" class="form-control" id="edad" />
+                </div>
+                <div class="col-12 col-md-6 mb-3">
+                  <label for="sexo" class="form-label">Sexo</label>
+                  <select
+                    id="sexo"
+                    class="form-select"
+                    aria-label="sexo"
+                  ></select>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12 col-md-6 mb-3">
+                  <label for="estatura" class="form-label">Tamaño</label>
+                  <select
+                    id="estatura"
+                    class="form-select"
+                    aria-label="estatura"
+                  ></select>
+                </div>
+                <div class="col-12 col-md-6 mb-3">
+                  <label for="color" class="form-label"
+                    ><span class="text-danger fw-bold">*</span>Color</label
+                  >
+                  <input type="text" class="form-control" id="color" />
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col mb-3">
+                  <div class="form-check form-switch">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      role="switch"
+                      id="vacuna"
+                    />
+                    <label class="form-check-label" for="vacuna">Vacuna</label>
+                  </div>
+                  <div class="form-check form-switch">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      role="switch"
+                      id="esterilizado"
+                    />
+                    <label class="form-check-label" for="esterilizado"
+                      >Esterilizado</label
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="contacto" class="form-label"
+                  ><span class="text-danger fw-bold">*</span>Contacto</label
+                >
+                <input type="text" class="form-control" id="contacto" />
+              </div>
+              <div class="col mb-3">
+                <div class="form-check form-switch">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    role="switch"
+                    id="destacado"
+                  />
+                  <label class="form-check-label" for="destacado"
+                    >Destacado</label
+                  >
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="imagen" class="form-label">URL de imagen</label>
+                <input
+                  placeholder="url de imagen de la mascota"
+                  type="text"
+                  class="form-control"
+                  id="imagen"
+                />
+              </div>
+              <div class="d-grid d-md-flex justify-content-md-end">
+                <button class="btn btn-warning">Guardar</button>
+              </div>
+            </form>
+          </div>
+          <div class="d-none d-md-block col-md-6">
+            <img
+              class="img-alta"
+              src="../assets/gato_alta.jpg"
+              alt="gato con moño"
+            />
+          </div>
+        </div>
+      </div>
+    </main>
+    <hr />
+    <footer>
+      <div class="container">
+        <div class="row align-items-center">
+          <div
+            class="col-12 col-md-4 mb-3 d-flex justify-content-center align-items-center gap-2"
+          >
+            <img src="../assets/logo.png" alt="logo" />
+            <span class="fs-2 fw-bold">Adopt-Ar</span>
+          </div>
+          <div class="col-12 col-md-4 mb-3 d-flex gap-3 justify-content-center">
+            <i class="fa fa-instagram fa-3x" aria-hidden="true"></i>
+            <i class="fa fa-facebook-official fa-3x" aria-hidden="true"></i>
+            <i class="fa fa-twitter-square fa-3x" aria-hidden="true"></i>
+            <i class="fa fa-linkedin-square fa-3x" aria-hidden="true"></i>
+          </div>
+          <div class="col-12 col-md-4 mb-3">
+            <form class="d-flex gap-2">
+              <input
+                class="form-control"
+                type="email"
+                placeholder="Ingresa tu correo"
+              />
+              <button class="btn btn-warning">Suscríbete</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://use.fontawesome.com/085fe3a535.js"></script>
+    <script src="../js/admin.js"></script>
+  </body>
+</html>
