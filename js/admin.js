@@ -8,7 +8,7 @@ class Mascota {
     sexo,
     estatura,
     color,
-    vacunado,
+    vacuna,
     esterilizado,
     contacto,
     destacado,
@@ -22,7 +22,7 @@ class Mascota {
     this.sexo = sexo;
     this.estatura = estatura;
     this.color = color;
-    this.vacunado = vacunado;
+    this.vacuna = vacuna;
     this.esterilizado = esterilizado;
     this.contacto = contacto;
     this.destacado = destacado;
@@ -30,7 +30,8 @@ class Mascota {
   }
 }
 
-let mascotas = [];
+let mascotas = JSON.parse(localStorage.getItem("mascotas")) || [];
+let formularioValido = true;
 
 //array o lista de especies
 let especies = ["perro", "gato", "anfibio", "roedor", "ave", "exótico", "pez"];
@@ -48,7 +49,7 @@ let edad = document.querySelector("#edad");
 let listaSexo = document.getElementById("sexo");
 let listaEstatura = document.getElementById("estatura");
 let color = document.querySelector("#color");
-let vacunado = document.querySelector("#vacuna");
+let vacuna = document.querySelector("#vacuna");
 let esterilizado = document.querySelector("#esterilizado");
 let contacto = document.querySelector("#contacto");
 let destacado = document.querySelector("#destacado");
@@ -82,28 +83,46 @@ estaturas.forEach((item) => {
   option.innerText = item;
   listaEstatura.append(option);
 });
+
 // crear la función para agregar mascotas nuevas
 const agregarMascota = (event) => {
   event.preventDefault();
-  let nuevaMascota = new Mascota(
-    nombre.value,
-    listaEspecies.value,
-    raza.value,
-    edad.value,
-    listaSexo.value,
-    listaEstatura.value,
-    color.value,
-    vacunado.checked,
-    esterilizado.checked,
-    contacto.value,
-    destacado.checked,
-    imagen.value
-  );
 
-  mascotas.push(nuevaMascota);
-  localStorage.setItem("mascotas", JSON.stringify(mascotas));
-  document.querySelector("#formulario-alta").reset();
-  nombre.focus();
+  if (
+    nombre.value.length > 0 &&
+    edad.value.length > 0 &&
+    raza.value.length > 0 &&
+    color.value.length > 0 &&
+    contacto.value.length > 0
+  ) {
+    formularioValido = true;
+  } else {
+    formularioValido = false;
+  }
+
+  if (formularioValido) {
+    let nuevaMascota = new Mascota(
+      nombre.value,
+      listaEspecies.value,
+      raza.value,
+      edad.value,
+      listaSexo.value,
+      listaEstatura.value,
+      color.value,
+      vacuna.checked,
+      esterilizado.checked,
+      contacto.value,
+      destacado.checked,
+      imagen.value
+    );
+
+    mascotas.push(nuevaMascota);
+    localStorage.setItem("mascotas", JSON.stringify(mascotas));
+    document.querySelector("#formulario-alta").reset();
+    nombre.focus();
+  } else {
+    alert("Por favor, complete todos los campos obligatorios que están con *.");
+  }
 
   //   nombre.value = "";
   //    listaEspecies.value = "";
@@ -120,6 +139,8 @@ const agregarMascota = (event) => {
 };
 //array de objetos
 //guardar en localstorage
-document
-  .querySelector("#formulario-alta")
-  .addEventListener("submit", agregarMascota);
+if (document.querySelector("#formulario-alta")) {
+  document
+    .querySelector("#formulario-alta")
+    .addEventListener("submit", agregarMascota);
+}
