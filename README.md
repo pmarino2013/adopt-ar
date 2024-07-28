@@ -8,4 +8,4 @@ Proyecto de práctica módulo 2 del curso Fullstack de RollingCode
 - Html
 - Css
 - Bootstrap
-- Javascript
+- Javascript vanilla
